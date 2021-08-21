@@ -23,7 +23,20 @@ puede contener distintos tipos de datos
 
 //ejemplos
 
-let calificacion = [10,9,8,7,9]
+let arreglo = [1,2,3,4,5]
+for(let i = 0; i<arreglo.length;i++){
+  console.log(i)
+}
+
+console.log('aca se imprime el arreglo en reversa')
+for (let i = arreglo.length -1;i>=0;i--){
+  console.log(i)
+}
+
+
+
+
+let calificacion = [10,9,8,7,9]//declaracion de un arreglo
 console.log(calificacion)
 calificacion[2] = 4
 console.log(calificacion)
@@ -40,7 +53,7 @@ valores = ['a','b']
 
 let c = valores.shift()
 
-console.log(c//c almacena el valor eliminado
+console.log(c)//c almacena el valor eliminado
 
 /* 
 for(let i = 0;i < arreglo.length; i++){
