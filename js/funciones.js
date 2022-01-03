@@ -95,5 +95,16 @@ console.log(funcion(2,3))
 //salida es 5
 
 
+function sumarvalores(){
+    let suma = 0;
+    for(let i = 0; i < arguments.lenght;i++){
+        suma += arguments[i]
+        console.log(suma)
+    }
+}
+
+sumarvalores(1,2,3,4,5)
+}
+
 
 
