@@ -11,7 +11,7 @@ let usuario = {nombre : nombre}
 
 let nombre = 'alex'
 
-let usuario = {nombre:nombre}//shorthand propertys
+let usuario = {nombre}//shorthand propertys
 nombre = 'varela'
 console.log(usuario.nombre)
 console.log(nombre)
