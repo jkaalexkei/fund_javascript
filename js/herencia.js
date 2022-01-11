@@ -81,3 +81,45 @@ obj._nombre = 'Alex' //llamado al metodo setters
 console.log(obj._nombre) //llamado al metodo getters
 
 
+
+//propiedades y metodos estaticos
+
+class Objeto{
+    static PROPIEDAD = 'Alex' //PROPIEDAD ESTATICA, EL NOMBRE VA CON LAS LETRAS MAYUSCULAS
+    
+    static Metodo(){ //METODO ESTATICO
+        console.log(this.PROPIEDAD)
+    }
+}
+Objeto.Metodo()//NOMBRE DE CLASE Y EL METODO ESTATICO
+
+console.log(Objeto.PROPIEDAD) //NOMBRE DE LA CLASE Y LA PROPIEDAD ESTATICA
+
+//------------------------------------------------------------------------------
+class Objeto{
+    static PROPIEDAD = 'Alex' //PROPIEDAD ESTATICA, EL NOMBRE VA CON LAS LETRAS MAYUSCULAS
+    
+    static Metodo(){ //METODO ESTATICO
+        return new this() //retornamos un  nuevo objeto
+    }
+    nombre = 'valor' //propiedad de clase
+}
+
+
+console.log(Objeto.Metodo()) //NOMBRE DE LA CLASE Y LA PROPIEDAD ESTATICA
+
+//---salida
+//Objeto { nombre: 'valor' }
+
+//-------objeto que crea otros objetos--------------------------------------------------
+//ejemplo de objeto que crea otros objetos
+class User{
+    permiso = 0
+    static Admin(){
+        let user = new this()
+        user.permiso = 5
+        return user
+    }
+}
+
+console.log(User.Admin())
