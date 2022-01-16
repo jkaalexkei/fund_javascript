@@ -288,5 +288,57 @@ Una funcion constructora puede heredar de otra si usamos el prototype de la clas
 
 */
 
+*/
+
+// // herencia js mediante el comando Object.create
+
+// function Curso(titulo){this.titulo= titulo;}
+
+// let js = new Curso('curso js')
+
+// let ruby = Object.create(js)
+
+// console.log(ruby.titulo)
+
+// ruby.titulo='curso de ruby'
+
+// console.log(ruby)
+// console.log(js)
+
+// function objetoNuevo(valor){ this._valor = valor}
+
+// let nuevoObj = new objetoNuevo('texto de prueba')
+
+// //console.log(nuevoObj)
+
+// let otroObj = Object.create(nuevoObj)//permite crear un objeto a partir de un objeto ya creado
+
+// console.log(otroObj.__proto__ === nuevoObj)//esto retorna true porque la propiedad __proto__ del nuevo objeto es igual a la propiedad __proto__ del objeto que esta heredando
+
+// function Curso(titulo){
+//     this.titulo = titulo
+// }
+
+// Curso.prototype.inscribir = function (){
+//     console.log('inscribir')
+// }
+
+// function Livecurso(date){
+//     this.publicado = date
+// }
+
+// Livecurso.prototype = Object.create(Curso.prototype)
+
+// let js = new Liivecurso(new Date())
+
+// /*
+
+// En javascript la herencia de prototipos funciona al incluir el prototype de una clase en la cadena de prototipos de un objeto.
+
+// Un objeto puede heredar de otro si lo usamos como primer argumento de Object.create
+
+// Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija
+
+// */
 
 
