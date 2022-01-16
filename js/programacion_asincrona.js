@@ -1,98 +1,5 @@
 
 
-/*CALLBACKS*/
-console.log('hola')
-
-//require permite importar librerias
-let respuesta = require('request')//llamado a la libreria request para trabajar con peticiones asincronas
-
-//llamado a la pagina de google usando la libreria request
-//el callback se ejecuta una vez que la 
-//el metodo request recibe dos parametros la url de peticion y una funcion
-
-respuesta('http://www.google.com',function(){
-    console.log('peticion lograda')
-})
- 
-//PROMESAS
-
-let respuesta = require('request-promise')//uso de la libreria request-promise peticiones asincronas
-
-//ejemplo 1
-respuesta('http://www.google.com')
-    .then(function(){//permite ejecutar una funcion cuando la operacion asincrona no posee errores
-        console.log('mensaje dentro la promesa')
-    })
-
-//ejemplo 2
-let respuesta = require('request-promise')//uso de la libreria request-promise peticiones asincronas
-respuesta(2)//se le pasa a la funcion un valor incorrecto para capturar el error generado
-    .then(function(){//permite ejecutar una funcion cuando la operacion asincrona no posee errores
-        console.log('mensaje dentro la promesa')
-    })
-    .catch(function(err){//permite capturar errores en operaciones asincronas
-        console.log( err)
-    })
-
-/*
-estados de la promesa
-fullfield: 0 completada, significa que la promesa se completo con éxito
-rejected: 0 rechazada, significa que la promesa no se completo con exito
-pending: 0 pendiente, que es el estado dde la promesa cuando la operación no ha terminado, aquí decimos que la promesa no se ha cumplido
-settled: 0 Finalizada, cuando la promesa terminó ya sea con éxito o con algún error.
-
-*/
-
-// // herencia js mediante el comando Object.create
-
-// function Curso(titulo){this.titulo= titulo;}
-
-// let js = new Curso('curso js')
-
-// let ruby = Object.create(js)
-
-// console.log(ruby.titulo)
-
-// ruby.titulo='curso de ruby'
-
-// console.log(ruby)
-// console.log(js)
-
-// function objetoNuevo(valor){ this._valor = valor}
-
-// let nuevoObj = new objetoNuevo('texto de prueba')
-
-// //console.log(nuevoObj)
-
-// let otroObj = Object.create(nuevoObj)//permite crear un objeto a partir de un objeto ya creado
-
-// console.log(otroObj.__proto__ === nuevoObj)//esto retorna true porque la propiedad __proto__ del nuevo objeto es igual a la propiedad __proto__ del objeto que esta heredando
-
-// function Curso(titulo){
-//     this.titulo = titulo
-// }
-
-// Curso.prototype.inscribir = function (){
-//     console.log('inscribir')
-// }
-
-// function Livecurso(date){
-//     this.publicado = date
-// }
-
-// Livecurso.prototype = Object.create(Curso.prototype)
-
-// let js = new Liivecurso(new Date())
-
-// /*
-
-// En javascript la herencia de prototipos funciona al incluir el prototype de una clase en la cadena de prototipos de un objeto.
-
-// Un objeto puede heredar de otro si lo usamos como primer argumento de Object.create
-
-// Una funcion constructora puede heredar de otra si usamos el prototype de la clase base como primer argumento de Object.create y asignamos ese resultado al prototype de la clase hija
-
-// */
 
 
 //------programacion asincrona
@@ -124,16 +31,22 @@ console.log('hola')
 let respuesta = require('request')//llamado a la libreria request para trabajar con peticiones asincronas
 
 //llamado a la pagina de google usando la libreria request
-//el callback se ejecuta una vez que la 
+//el callback es una funcion que se pasa como argumento a una operacion asincrona y se ejecuta una vez que la operacion haya finalizado
 //el metodo request recibe dos parametros la url de peticion y una funcion
+//una funcion callbacks es una funcion que sera llamada eventualmente
+//si la operacion asincrona se demora,se sigue ejecutando el resto del codigo
 
 respuesta('http://www.google.com',function(){
     console.log('peticion lograda')
 })
+
+console.log('mensaje despues de la peticion')//este mensaje se ejecuta antes que la peticion asincrona finalice
  
 //PROMESAS
 
-let respuesta = require('request-promise')//uso de la libreria request-promise peticiones asincronas
+let respuesta = require('request-promise')//uso de la libreria request-promise peticiones asincronas. No usa callbacks, trabaja con promesas .then
+//retorna un objeto en la operacion asincrona
+
 
 //ejemplo 1
 respuesta('http://www.google.com')
@@ -186,11 +99,19 @@ se usan de manera encadenada como se muestra en el ejemplo anterior
 
 
 //CREAR PROMESAS
+let mipromesa = new Promise(function(resolve,reject){
+    resolve(10)
+    reject('algosaliomal')
+});
+
+
+
 let request = require('request')//implementamos request que usa callbacks
 
+
 function leerPagina(url){ //funcion para leer una url
-    return new Promise(function(resolve,reject){ //creamos una promesa que recibe como arg una funcion llamada el executor donde esta recibe 2 arg. Resolve para resolver la promesa y reject para recharla
-        //hacemos request a la url que recibimos como argumento, luego recibe una funcion como argumento que es un callback
+    return new Promise(function(resolve,reject){ //creamos una promesa que recibe como arg una funcion llamada el executor donde esta recibe 2 arg. Resolve para resolver la promesa y reject para rechazarla
+        //hacemos request a la url que recibimos como argumento, luego recibe una funcion como argumento que es una funcion callback
         //este callback a su vez recibe dos argumentos (error-> si algo salio mal, response->respuesta)
         request(url,function(error,response){
             if(error) return reject(error); //si la funcion produce algun error se rechaza la promesa y se retorna dicho error
@@ -208,6 +129,79 @@ let promesa = leerPagina('http://google.com')//esto retorna una promesa
 promesa.then(r => console.log('termino el proceso'))//en caso que se ejecute bien   
 promesa.catch(err => console.log(err));//en caso que se ejecute un error
 
+//MULTIPLES PROMESAS
+
+
+let p1 = new Promise((resolve,reject) => setTimeout(resolve,500,'hola mundo'))//el tercer parametro se almacena en la variable resolve que almacena la respuesta
+
+let p2 = new Promise((resolve,reject) => setTimeout(resolve,600,'segundo hola mundo'))
+
+// p1.then(function(respuesta){
+//     console.log(respuesta)
+// })
+//para resolver una promesa usamos .then seguido de una funcion que recibe como parametro la respuesta obtenida de la promesa
+
+function finalizado(){
+    console.log('este es el mensaje de la funcion finalizado')
+}
+
+//¿Como hacer que el mensaje de la funcion ocurra luego que se ejecuten las promesas p1 y p2?
+
+//forma 1
+
+// p1.then(function(){
+//     p2.then(function(){
+//         finalizado(); 
+//     })
+// })
+
+//callback hell
+p1.then(function(respuesta_p1){
+    console.log(respuesta_p1)
+    p2.then(function(respuesta_p2){
+        console.log(respuesta_p2)
+        finalizado();
+    })
+})
+
+//forma 2
+//el metodo all recobe un arreglo de promesas. Pueden ser N promesas que se quieran resolver
+Promise.all([p1,p2]).then(function(resultado){//produce una nueva promesa que es resuelta hasta que todas allan finalizado, en caso que falle una no se ejecutan las demas
+    console.log(resultado)
+    finalizado();
+}).catch(error => console.log(error))
+
+//se usan en aplicaciones web o mobiles
+
+//ENCADENAR PROMESAS
+
+//multiples operaciones asincronas
+//las funciones que se encadenen deben retornar promesas
+//es muy importante que las funciones asincronas retornen promesas de lo contrario no serían funciones asincronas
+
+//ejemplo
+
+function primeraPromesa(){
+    return new Promise((resolve,reject) => setTimeout(resolve,500,'hola mundo primera promesa'))
+}
+
+function segundaPromesa(r2){//funcion que se ejecutara si la 1era promesa se ejecuto correctamente
+    console.log(r2)
+    return new Promise((resolve,reject) => setTimeout(resolve,600,'segundo hola mundo'))
+}
+
+function finalizado2(){
+    console.log('este es el mensaje de la funcion finalizado')
+}
+
+//al ejecutar primerPromesa se crea la promesa 1
+//luego ejecutamos la segundaPromesa y se crea la promesa 2
+//luego imprimimos el resultado de la segunda promesa
+//se pueden encadenar N numero de promesas siempre y cuando estas retornen un objeto de tipo Promise
+//esto se puede usar en sitios web como redes sociales
+primeraPromesa().then(segundaPromesa).then(function(resp){
+    console.log(resp)
+});
 
 
 
