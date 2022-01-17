@@ -67,4 +67,16 @@ if (letraDNI === letraDNIgenerada){
   console.log('La letra DNI no coincide')
 }
 
+//OUTPUT
+
+/*
+
+98765421
+17
+"V"
+"su numero de DNI es: "
+"V98765421"
+
+
+*/
 
