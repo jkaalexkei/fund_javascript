@@ -1,4 +1,6 @@
 /*
+ejercicios
+https://www.arkaitzgarro.com/javascript/capitulo-18.html#ej05
 ENUNCIADO
 
 El cálculo de la letra del Documento Nacional de Identidad (DNI) es un 
