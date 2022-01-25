@@ -103,9 +103,11 @@ if (mes.length<2) {
 
 let mes = "6";
 
-console.log(mes.padStart(2,"0"));
+console.log(mes.padStart(2,"0")); //primer arg indica la longitud que espero
+console.log(mes.padEnd(2,"0")); // agrega la cadena al final en la longitud deseada
 
 
+//COMPARACION DE CADENAS
 
 
   
