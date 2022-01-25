@@ -240,3 +240,97 @@ Iterables con iteradores
 
 */
 
+/ iterables con iteradores
+/*
+
+nos permiten definir el comportamiento de uno de los objetos cuando se pasan por un ciclo for of
+
+arreglos, cadenas, otros.
+
+protocolo iterable nos permite definir cual será el comportamiento de un objeto cuando sea puesto en un ciclo for of
+
+cuando se pasa um arreglo por un ciclo nos entregara cada elemento del arreglo
+
+
+
+function* counter(){
+    for(var i=1;i<=5;i++){
+        yield i;
+    }
+}
+
+let generador = counter();
+
+let numeros = [2,5,10]
+
+for(numero of numero){
+    console.log(numero)
+}
+
+for(numero of generador){
+    console.log(numero)
+}
+
+un ciclo fro of tzambien puede recibir un generador o iterador como argumento 
+
+para que un objeto sea iterable, necesita implementar un metodo llamado @@iterator el cual esta identificado por un symbol y no por una cadena y su vez retornar un iterador
+
+este sysmbolo no tiene un nombre por lo que habria que pasar directamente el simbolo para poder implementar el metodo 
+un objeto para ser iterable deble implemntar el symbol.iterator
+simbolos bien conocidos,  devuelve un objeto iterator
+
+ver ejemmplos de iteradores
+
+*/
+
+//ejemplo practico de uso Iterables con iteradores
+
+let rango = { //creacion de un rango (uso de iterador y generador)
+    min:null,
+    max:null,
+    currentValue:null,
+    [Symbol.iterator](){
+        return this;
+    },
+    next(){
+        if(this.currentValue == null) this.currentValue = this.min;
+        let result = {};
+        if(this.currentValue > this.min && this.currentValue <= this.max){
+            result = { value:this.currentValue,done:false};
+            this.currentValue+=1;
+
+        }else{
+            result={done:true};
+        }
+
+        return result;
+    }
+}
+
+rango.min=0;
+rango.max=10;
+for(n of rango){
+    console.log(n)
+}
+
+//para retornar un generador se necesita de una funcion generado 
+
+//uso de iterables con implementacion de generadores
+
+let rago={
+    min:null,
+    max:0,
+    [Sysmbol.iterator](){
+        return this.generator();
+
+    },
+    generator:function(){
+        for(var i  = this.min;this.max;i+++){
+            yield 2022;
+
+
+        }
+    }
+}
+generador
+
