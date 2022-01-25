@@ -319,18 +319,21 @@ for(n of rango){
 
 let rago={
     min:null,
-    max:0,
+    max:null,
     [Sysmbol.iterator](){
         return this.generator();
 
     },
-    generator:function(){
-        for(var i  = this.min;this.max;i+++){
-            yield 2022;
-
-
+    generator:function*(){
+        for(var i  = this.min;i<=this.max;i++){
+            yield i;
         }
     }
-}
-generador
+};
+
+rango.min = 0;
+rango.max = 100;
+
+for (n of rango){ console.log(n)}
+
 
