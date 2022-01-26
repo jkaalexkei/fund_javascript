@@ -109,6 +109,22 @@ console.log(mes.padEnd(2,"0")); // agrega la cadena al final en la longitud dese
 
 //COMPARACION DE CADENAS
 
+/*
+se pueden usar operadores de comparacion > < >= <= ==
+
+api de internacionalizacion localeCompare retorn 1,-1,0 
+si la cadena es igual retorna 0
+si la cadena base aparece antes de la cadena de comparacion
+
+
+*/
+
+
+
+
+
+
+
 
   
   
