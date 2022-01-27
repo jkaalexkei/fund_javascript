@@ -107,20 +107,85 @@ console.log(mes.padStart(2,"0")); //primer arg indica la longitud que espero
 console.log(mes.padEnd(2,"0")); // agrega la cadena al final en la longitud deseada
 
 
-//COMPARACION DE CADENAS
+//comparacion de cadenas
 
+// <, >, <=,>=,==
+
+console.log("a" > "b")
+
+//cuando se comparan dos cadenas se hace utilizando el valor numerico de ambas
+console.log("a">"b")
+//api de internacionalizacion de cadenas
+
+//metodo localcompare, retorna un enetero 1,-1,0
+//si la cadena base aparece antes que la cadena de comparacion en orden alfabetico retornara -1 en caso contrario retornara 1
+// 0 -> iguales
+// 1 -> no iguales
+//-1 ->  
+// ejemplo
+
+//uso del metodo localeCompare -> metodo del objeto String
+
+console.log("a".localeCompare("b"));
+
+
+//las comparaciones son sensibles a mayusculas y minusculas
+//las operaciones con las cadenas son inmutables
+//la modificacion se entregara en una nueva cadena
+
+//una cadena esta conformada por una secuencia ordenada de caracteres
+//se pueden acceder a los valores de la cadena segun su posicion empezando por el 0
+//para iterar una cadena se puede utlizar el ciclo for of
+
+ejemplo:
+let cadena =  "HOLA"
+
+for (const caracters of cadena){
+    console.log(caracteres)
+}
+
+//se puede usar los metodos toLowerCase / toUpperCase
+console.log("A".toLowerCase().localeCompare("a".tolowerCase()))
+//las cadenas son inmutables o no pueden cambiar su valor
+//la modificacion de una cadena se entrega en una nueva cadena
+let prueba = "Hola"
+let segundaCadena = prueba.toUpperCase();
+
+console.log(prueba)
+console.log(segundaCadena)
+//se debe conservar la cadena Base
 /*
-se pueden usar operadores de comparacion > < >= <= ==
 
-api de internacionalizacion localeCompare retorn 1,-1,0 
-si la cadena es igual retorna 0
-si la cadena base aparece antes de la cadena de comparacion
-
-
+//Subcadenas y caracteres
+//secuencia ordenada de caracteres
+//puede usar la posicion del caracter ejemplo
 */
 
+console.log("saludo"[0])
+//salida "s"
 
+//para iterar cadenas se recomienda bucle
+//for of
 
+//ejemplo: 
+let cadena = "hola"
+for (const caracter of cadena){
+  console.log(caracter)
+}
+
+//en JS las cadenas siempre son representadas con el mismo tipo string
+//asi tengan uno o mas caracteres
+
+//los substring son cadenas que vienen de otras cadenas
+
+//para trabajar con subcadenas se emplea el metodo subString(posicioninicial,posicionfinal)
+console.log(cadena.substring(0,3))
+//el argumento que indica donde debe terminar la cadena no es incluyente
+
+//si el argumento de incio es mayor al argumento final, la cadena se intercambia
+//los valores negativos son reemplazados por el 0
+console.log(cadena.slice(6,4))//esta forma el metodo slice no la ejecuta
+//el metodo slice con valores negativos cuenta de atras hacia adelante
 
 
 
