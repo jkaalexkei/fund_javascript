@@ -188,6 +188,56 @@ console.log(cadena.slice(6,4))//esta forma el metodo slice no la ejecuta
 //el metodo slice con valores negativos cuenta de atras hacia adelante
 
 
+//metodo substr para trabajar con cadenas
+//https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
+
+//BUSQUEDA DE ELEMENTOS EN UNA CADENA
+//SABER SI EXISTE UNA CADENA DENTRO DE 
+
+//indexOf() permite saber si existe una cadena dentro de otra y retorna la posicion o indice donde fue encontrada, si la cadena no fue encontrada retorna -1
+//utiliza un algoritmo de comparacion de igualdades estricta
+//retorna la primera instancia encontrada o cadena encontrada
+//validar si una cadena existe
+let cadena = 'hola mundo'
+if((cadena.indexOf('hola') > 0 ){
+   console.log('encontrado')
+}else{
+  console.log('no encontrado')
+}
+
+//metodo includes retorna True o False si la cadena existe en la cadena donde se esta buscando
+//utiliza un algoritmo de nombres sin value 0 que soluciona el caso de buscar un falso como NaN.
+//es mas estable y legible
+
+let cadena = 'hola mundo'
+if((cadena.includes('hola')){
+   console.log('encontrado')
+}else{
+  console.log('no encontrado')
+}
+
+//en algunas casos una cadena buscada aparecera multiples veces en la cadena de busqueda
+//en caso de querer obtener la ultima instancia en la cadena de busqueda se utliza el metodo lasIndexOf()
+//tener cuidado con ese metodo porque la ejecucion es mas lenta
+//recorre toda la cadena para estar seguro que no hay otra instancia al final de la misma
+
+console.log(cadena.lastIndexOf('hola')
+            
+//para saber si existe una cadena al inicio de otra se utiliza startwidth
+//para saber si existe una cadena al final de otra se utiliza endwidth
+            
+//ejemplo:
+            
+let link = "https://github.com/jkaalexkei
+            
+            
+ 
+
+           
+
+
+
+
 
 
 
