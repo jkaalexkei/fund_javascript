@@ -229,9 +229,55 @@ console.log(cadena.lastIndexOf('hola')
 //ejemplo:
             
 let link = "https://github.com/jkaalexkei
+let imagen = 'imagen.jpg'
             
+ if (link.startwidth('https')){console.log('el link es seguro')}else{console.log('no es seguro')}
+if (link.endwidth('jpg')){console.log('es una imagen')}else{console.log('no es seguro')}
+
+
+ //CADENAS Y ARREGLOS
+
+//SOLO GUARDAN ELEMENTOS DE TEXTOS
+//TRATAR CADENAS COMO ARREGLOS
+
+//METODO split("separador") convierte una cadena en un arreglo y utiliza un delimitador para separar
+
+let cadena = 'hola mundo'
+console.log(cadena.split()) //['hola','mundo']
+let nuevacadena = cadena.split(" ")
+console.log(nuevacadena.length)//devuelve el numero de elementos del arreglo
+
+//metodo join() inverso para unir arreglos en una sola cadea
+console.log(nuevacadena.join(" ")
             
- 
+//filtro de palabras
+let texto = "estoy aprendiendo js con el curso de codigofacilito"
+            
+console.log(filtradodemarca(texto));
+
+function filtradodemarca(str){
+  let marca = ['codigofacilito']
+  let palabrasfiltradas = str.split(' ').map(
+      palabra => {
+          return marca.includes(palabra) ? 'XXXX' : palabra
+      }
+  );
+  //console.log(palabrasfiltradas); esto imprime la cadena separada
+  return palabrasfiltradas.join(' ')
+}
+
+//con los metodos del arreglo se dar mas utilidad al manejo de cadenas
+
+//trim() limpia los espacios en blanco de la cadena
+//cadena.trimstart()
+//cadena.trimend()
+//cadena.length()
+//cadena.repeat()
+//cadena.replace('cadenaoriginal','cadenaconlaquesevaareemplazar')
+//
+
+
+
 
            
 
