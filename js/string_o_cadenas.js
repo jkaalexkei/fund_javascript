@@ -235,6 +235,7 @@ let imagen = 'imagen.jpg'
 if (link.endwidth('jpg')){console.log('es una imagen')}else{console.log('no es seguro')}
 
 
+
  //CADENAS Y ARREGLOS
 
 //SOLO GUARDAN ELEMENTOS DE TEXTOS
